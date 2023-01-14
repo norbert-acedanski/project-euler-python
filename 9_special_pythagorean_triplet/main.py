@@ -1,7 +1,7 @@
 from typing import Tuple
 
 
-def find_pythagorean_triplets_based_on_their_sum(expected_sum: int) -> Tuple[int, int, int]:
+def find_pythagorean_triplet_based_on_their_sum(expected_sum: int) -> Tuple[int, int, int]:
     for largest in range(1, expected_sum - 1):
         for middle in range(1, largest):
             for smallest in range(1, middle):
@@ -10,5 +10,5 @@ def find_pythagorean_triplets_based_on_their_sum(expected_sum: int) -> Tuple[int
 
 
 if __name__ == "__main__":
-    a, b, c = find_pythagorean_triplets_based_on_their_sum(1000)
+    a, b, c = find_pythagorean_triplet_based_on_their_sum(1000)
     print(a*b*c)
