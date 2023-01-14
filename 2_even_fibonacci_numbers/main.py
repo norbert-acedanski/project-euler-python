@@ -8,4 +8,4 @@ def fibonacci_numbers(up_to: int):
 
 
 if __name__ == "__main__":
-    print(sum(fibonacci_number for fibonacci_number in fibonacci_numbers(4_000_000) if not fibonacci_number % 2))
+    print(sum(fibonacci_number for fibonacci_number in fibonacci_numbers(4_000_000) if fibonacci_number % 2 == 0))

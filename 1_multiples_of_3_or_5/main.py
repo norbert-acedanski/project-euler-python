@@ -1,6 +1,6 @@
 def multiple_of_3_or_5(up_to: int):
     for number in range(1, up_to):
-        if not number % 3 or not number % 5:
+        if number % 3 == 0 or number % 5 == 0:
             yield number
 
 
