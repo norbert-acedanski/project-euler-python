@@ -20,7 +20,8 @@ def is_number_prime(number: int) -> bool:
 
 
 if __name__ == "__main__":
+    index = 10_001
     for prime_index, prime in enumerate(prime_number_generator(), 1):
-        print(f"{prime_index}. {prime}")
-        if prime_index == 10_001:
+        if prime_index == index:
+            print(prime)
             break
