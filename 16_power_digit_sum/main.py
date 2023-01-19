@@ -1,11 +1,11 @@
 def calculate_large_exponent(base: int, exponent: int) -> str:
-    digits = [base]
+    digits = list(int(digit) for digit in reversed(str(base)))
     add = 0
     for _ in range(exponent - 1):
         for index in range(len(digits)):
             current_multiple = digits[index]*base
-            digits[index] = current_multiple % 10 + add
-            add = current_multiple//10
+            digits[index] = (current_multiple + add) % 10
+            add = (current_multiple + add)//10
         if add != 0:
             digits.append(add)
             add = 0
