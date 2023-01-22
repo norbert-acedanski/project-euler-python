@@ -1,16 +1,7 @@
-import math
 import itertools
 from typing import List
 
-
-def is_number_prime(number: int) -> bool:
-    current_factor = 2
-    while current_factor <= math.sqrt(number):
-        if number % current_factor == 0:
-            return False
-        else:
-            current_factor += 1
-    return True
+from common import is_number_prime
 
 
 def pandigital_numbers_based_on_number_of_digits(number_of_digits: int) -> List[int]:

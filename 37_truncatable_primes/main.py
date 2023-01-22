@@ -1,4 +1,4 @@
-import math
+from common import is_number_prime
 
 
 def potential_trancatable_prime_number_generator():
@@ -12,16 +12,6 @@ def potential_trancatable_prime_number_generator():
         if is_number_prime(prime_number):
             yield prime_number
         prime_number += 1
-
-
-def is_number_prime(number: int) -> bool:
-    current_factor = 2
-    while current_factor <= math.sqrt(number):
-        if number % current_factor == 0:
-            return False
-        else:
-            current_factor += 1
-    return True if number != 1 else False
 
 
 def is_prime_trancatable_both_ways(prime_number: int) -> bool:

@@ -1,22 +1,4 @@
-import math
-
-
-def prime_number_generator():
-    prime_number = 2
-    while True:
-        if is_number_prime(prime_number):
-            yield prime_number
-        prime_number += 1
-
-
-def is_number_prime(number: int) -> bool:
-    current_factor = 2
-    while current_factor <= math.sqrt(number):
-        if number % current_factor == 0:
-            return False
-        else:
-            current_factor += 1
-    return True
+from common import prime_number_generator
 
 
 def sum_primes(up_to: int) -> int:

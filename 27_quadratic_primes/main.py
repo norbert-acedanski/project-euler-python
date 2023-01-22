@@ -1,4 +1,4 @@
-import math
+from common import is_number_prime
 
 
 def get_number_of_generated_consecutive_primes(a_value: int, b_value: int) -> int:
@@ -8,18 +8,6 @@ def get_number_of_generated_consecutive_primes(a_value: int, b_value: int) -> in
             n += 1
         else:
             return n
-
-
-def is_number_prime(number: int) -> bool:
-    if number < 2:
-        return False
-    current_factor = 2
-    while current_factor <= math.sqrt(number):
-        if number % current_factor == 0:
-            return False
-        else:
-            current_factor += 1
-    return True
 
 
 if __name__ == "__main__":
