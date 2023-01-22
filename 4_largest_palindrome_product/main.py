@@ -13,7 +13,7 @@ def get_palindromes(min_boundary: int, max_boundary: int, reverse: bool = False)
     return (number for number in range(min_boundary, max_boundary + 1) if is_number_palindrome(number))
 
 
-def get_larges_palindrome_that_is_a_product_of_n_digit_numbers(palindromes: Iterable, n: int) -> int:
+def get_largest_palindrome_that_is_a_product_of_n_digit_numbers(palindromes: Iterable, n: int) -> int:
     for number in palindromes:
         for factor in range(maximum_digit_number, int((maximum_digit_number + minimum_digit_number)/2), -1):
             if number % factor == 0 and len(str(number // factor)) == n:
@@ -26,4 +26,4 @@ def is_number_palindrome(number: int) -> bool:
 
 if __name__ == "__main__":
     unfiltered_palindromes = get_palindromes(min_boundary=minimum_number, max_boundary=maximum_number, reverse=True)
-    print(get_larges_palindrome_that_is_a_product_of_n_digit_numbers(unfiltered_palindromes, number_of_digits))
+    print(get_largest_palindrome_that_is_a_product_of_n_digit_numbers(unfiltered_palindromes, number_of_digits))
