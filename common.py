@@ -4,6 +4,12 @@ import math
 from typing import List
 
 
+def read_file(file_path: str) -> List[str]:
+    with open(file_path, "r") as file:
+        data = file.readline()
+    return data[1:-1].split('","')
+
+
 def prime_number_generator():
     # Not simple, but faster
     prime_number = 2

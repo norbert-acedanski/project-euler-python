@@ -1,11 +1,6 @@
-from typing import List
 import string
 
-
-def read_file(file_path: str) -> List[str]:
-    with open(file_path, "r") as file:
-        data = file.readline()
-    return data[1:-1].split('","')
+from common import read_file
 
 
 def sum_word_indexes(word: str) -> int:
