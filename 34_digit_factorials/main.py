@@ -1,3 +1,6 @@
+from common import factorial
+
+
 def get_upper_limit_for_iteration() -> int:
     """To get this value, we have to solve the inequality:
        max_power*9! <= 10^max_power - 1"""
@@ -12,13 +15,6 @@ def get_upper_limit_for_iteration() -> int:
 def is_number_curious(number: int) -> bool:
     digits = [int(digit) for digit in str(number)]
     return number == sum(factorial(digit) for digit in digits)
-
-
-def factorial(number: int) -> int:
-    result = 1
-    for num in range(2, number + 1):
-        result *= num
-    return result
 
 
 if __name__ == "__main__":

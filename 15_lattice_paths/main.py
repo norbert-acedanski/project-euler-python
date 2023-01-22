@@ -1,8 +1,4 @@
-def factorial(number: int) -> int:
-    result = 1
-    for num in range(2, number + 1):
-        result *= num
-    return result
+from common import factorial
 
 
 if __name__ == "__main__":
