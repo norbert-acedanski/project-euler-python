@@ -36,4 +36,4 @@ def is_number_prime(number: int) -> bool:
             return False
         else:
             current_factor += 1
-    return True
+    return True if number != 1 else False
