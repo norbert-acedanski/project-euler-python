@@ -37,3 +37,10 @@ def is_number_prime(number: int) -> bool:
         else:
             current_factor += 1
     return True if number != 1 else False
+
+
+def factorial(number: int) -> int:
+    result = 1
+    for num in range(2, number + 1):
+        result *= num
+    return result
