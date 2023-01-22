@@ -1,4 +1,7 @@
+import itertools
 import math
+
+from typing import List
 
 
 def prime_number_generator():
@@ -44,3 +47,10 @@ def factorial(number: int) -> int:
     for num in range(2, number + 1):
         result *= num
     return result
+
+
+def pandigital_numbers_based_on_number_of_digits(number_of_digits: int) -> List[int]:
+    if number_of_digits >= 10:
+        raise ValueError("Number of digits must be at most 9!")
+    return [int("".join(str(digit) for digit in number))
+            for number in itertools.permutations(range(1, number_of_digits + 1), number_of_digits)]

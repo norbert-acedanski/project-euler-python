@@ -1,14 +1,4 @@
-import itertools
-from typing import List
-
-from common import is_number_prime
-
-
-def pandigital_numbers_based_on_number_of_digits(number_of_digits: int) -> List[int]:
-    if number_of_digits >= 10:
-        raise ValueError("Number of digits must be at most 9!")
-    return [int("".join(str(digit) for digit in number))
-            for number in itertools.permutations(range(1, number_of_digits + 1), number_of_digits)]
+from common import is_number_prime, pandigital_numbers_based_on_number_of_digits
 
 
 if __name__ == "__main__":
