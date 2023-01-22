@@ -49,8 +49,13 @@ def factorial(number: int) -> int:
     return result
 
 
-def pandigital_numbers_based_on_number_of_digits(number_of_digits: int) -> List[int]:
-    if number_of_digits >= 10:
-        raise ValueError("Number of digits must be at most 9!")
+def pandigital_numbers_based_on_number_of_digits(number_of_digits: int, include_zero: bool = False) -> List[int]:
+    if include_zero:
+        if number_of_digits > 10:
+            raise ValueError("Number of digits must be at most 10!")
+    else:
+        if number_of_digits >= 10:
+            raise ValueError("Number of digits must be at most 9!")
     return [int("".join(str(digit) for digit in number))
-            for number in itertools.permutations(range(1, number_of_digits + 1), number_of_digits)]
+            for number in itertools.permutations(range(0 if include_zero else 1, number_of_digits + 1),
+                                                 number_of_digits)]
