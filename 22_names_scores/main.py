@@ -1,10 +1,4 @@
-import string
-
-from common import read_file
-
-
-def sum_word_indexes(word: str) -> int:
-    return sum(string.ascii_uppercase.index(letter) + 1 for letter in word)
+from common import read_file, sum_word_indexes
 
 
 if __name__ == "__main__":

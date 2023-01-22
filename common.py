@@ -1,5 +1,6 @@
 import itertools
 import math
+import string
 
 from typing import List
 
@@ -8,6 +9,10 @@ def read_file(file_path: str) -> List[str]:
     with open(file_path, "r") as file:
         data = file.readline()
     return data[1:-1].split('","')
+
+
+def sum_word_indexes(word: str) -> int:
+    return sum(string.ascii_uppercase.index(letter) + 1 for letter in word)
 
 
 def prime_number_generator():
