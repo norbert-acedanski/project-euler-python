@@ -1,7 +1,7 @@
 import math
 
 
-def get_triangular_numbers_generator():
+def triangular_numbers_generator():
     triangular_number = 1
     boundary = 1
     while True:
@@ -23,7 +23,7 @@ def get_number_of_divisors_of_a_number(number: int) -> int:
 
 if __name__ == "__main__":
     number_of_divisors = 500
-    for num in get_triangular_numbers_generator():
+    for num in triangular_numbers_generator():
         if get_number_of_divisors_of_a_number(num) > number_of_divisors:
             print(num)
             break
