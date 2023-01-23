@@ -1,6 +1,3 @@
-
-
-
 if __name__ == "__main__":
     target = 1_000_000
     numbers_sum = 0
