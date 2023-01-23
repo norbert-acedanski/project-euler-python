@@ -4,8 +4,8 @@ def calculate_large_exponent(base: int, exponent: int) -> str:
     for _ in range(exponent - 1):
         for index in range(len(digits)):
             current_multiple = digits[index]*base
-            digits[index] = (current_multiple + add) % 10
-            add = (current_multiple + add)//10
+            # Replacement of add = (current_multiple + add)//10 and digits[index] = (current_multiple + add) % 10
+            add, digits[index] = divmod(current_multiple + add, 10)
         if add != 0:
             digits.append(add)
             add = 0
