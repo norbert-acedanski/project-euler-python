@@ -14,8 +14,7 @@ def get_last_digits_for_max_power(power: int, number_of_digits: int) -> str:
                                                                    n=number_of_digits)
         for index in range(number_of_digits):
             current_add = digits[index] + calculated_number[index] + add
-            digits[index] = current_add % 10
-            add = current_add // 10
+            add, digits[index] = divmod(current_add + add, 10)
     return "".join(str(digit) for digit in reversed(digits))
 
 
@@ -26,8 +25,7 @@ def calculate_large_exponent_n_last_digits(base: int, exponent: int, n: int) -> 
         add = 0
         for index in range(len(digits)):
             current_multiple = digits[index]*base
-            digits[index] = (current_multiple + add) % 10
-            add = (current_multiple + add)//10
+            add, digits[index] = divmod(current_multiple + add, 10)
     return digits
 
 

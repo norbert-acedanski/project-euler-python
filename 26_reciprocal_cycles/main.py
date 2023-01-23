@@ -10,8 +10,7 @@ def calculate_decimal_expansion(number: int) -> Dict[str, str]:
     reminders_list = []
     while True:
         multiplied_reminder *= 10
-        whole_division_product = multiplied_reminder // number
-        reminder = multiplied_reminder % number
+        whole_division_product, reminder = divmod(multiplied_reminder, number)
         if reminder == 0:
             decimal_expansion_list.append(str(whole_division_product))
             period_index = -1

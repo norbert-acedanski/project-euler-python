@@ -110,9 +110,9 @@ def get_first_digits_of_sum(numbers_list: List[str], number_of_digits: int) -> s
     add = 0
     for index in range(max_length):
         digit_sum = sum(int(number[index]) for number in numbers_list) + add
-        first_numbers.insert(0, str(digit_sum % 10))
+        add, reminder = divmod(digit_sum, 10)
+        first_numbers.insert(0, str(reminder))
         first_numbers.pop()
-        add = digit_sum//10
     return str(add) + "".join(first_numbers)[:-len(str(add))]
 
 

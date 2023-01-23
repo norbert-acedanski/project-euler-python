@@ -12,8 +12,8 @@ def fibonacci_numbers_generator():
         add = 0
         for upper_digit, lower_digit in itertools.zip_longest(current_number, previous_number, fillvalue=0):
             add = upper_digit + lower_digit + add
-            new_higher_number.append(add % 10)
-            add = add//10
+            add, reminder = divmod(add, 10)
+            new_higher_number.append(reminder)
         if add != 0:
             new_higher_number.append(add)
         previous_number = copy.copy(current_number)
