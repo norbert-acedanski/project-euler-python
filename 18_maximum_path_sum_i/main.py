@@ -1,5 +1,7 @@
 from common import get_max_route_value_from_tree
 
+# The same as problem 67
+
 # triangle = """3
 #              7 4
 #             2 4 6
