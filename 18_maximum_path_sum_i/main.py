@@ -1,9 +1,10 @@
-from typing import List
+from common import get_max_route_value_from_tree
 
 # triangle = """3
 #              7 4
 #             2 4 6
 #            8 5 9 3"""  # Example
+
 triangle =        """75
                    95 64
                   17 47 82
@@ -24,16 +25,5 @@ for row in triangle.split("\n"):
     triangle_list.append([int(number) for number in row.strip().split()])
 
 
-def get_max_route_value(triangle_array: List[List[int]]) -> int:
-    lengths_of_routes = [triangle_array[0][0]]
-    for row in triangle_array[1:]:
-        new_lengths = [row[0] + lengths_of_routes[0]]
-        for index, number in enumerate(row[1:-1]):
-            new_lengths.append(number + max(lengths_of_routes[index: index + 2]))
-        new_lengths.append(row[-1] + lengths_of_routes[-1])
-        lengths_of_routes = new_lengths
-    return max(lengths_of_routes)
-
-
 if __name__ == "__main__":
-    print(get_max_route_value(triangle_array=triangle_list))
+    print(get_max_route_value_from_tree(triangle_array=triangle_list))

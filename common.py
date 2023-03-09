@@ -70,3 +70,14 @@ def pandigital_numbers_based_on_number_of_digits(number_of_digits: int, include_
     for number in itertools.permutations(range(int(not include_zero),
                                                number_of_digits + int(not include_zero)), number_of_digits):
         yield int("".join(str(digit) for digit in number))
+
+
+def get_max_route_value_from_tree(triangle_array: List[List[int]]) -> int:
+    lengths_of_routes = [triangle_array[0][0]]
+    for row in triangle_array[1:]:
+        new_lengths = [row[0] + lengths_of_routes[0]]
+        for index, number in enumerate(row[1:-1]):
+            new_lengths.append(number + max(lengths_of_routes[index: index + 2]))
+        new_lengths.append(row[-1] + lengths_of_routes[-1])
+        lengths_of_routes = new_lengths
+    return max(lengths_of_routes)
