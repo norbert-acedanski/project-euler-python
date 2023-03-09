@@ -11,6 +11,15 @@ def read_file(file_path: str) -> List[str]:
     return data[1:-1].split('","')
 
 
+def read_file_with_multiple_lines(file_path: str) -> List[List[int]]:
+    data = []
+    with open(file_path, "r") as file:
+        for line in file.readlines():
+            current_data = list(map(int, line.split()))
+            data.append(current_data)
+    return data
+
+
 def sum_word_indexes(word: str) -> int:
     return sum(string.ascii_uppercase.index(letter) + 1 for letter in word)
 
