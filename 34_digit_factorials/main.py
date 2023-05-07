@@ -1,4 +1,4 @@
-from common import factorial
+from math import factorial
 
 
 def get_upper_limit_for_iteration() -> int:

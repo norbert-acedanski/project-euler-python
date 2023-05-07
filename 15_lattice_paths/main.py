@@ -1,4 +1,4 @@
-from common import factorial
+from math import factorial
 
 
 if __name__ == "__main__":

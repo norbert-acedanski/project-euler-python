@@ -63,13 +63,6 @@ def is_number_prime(number: int) -> bool:
     return True if number != 1 else False
 
 
-def factorial(number: int) -> int:
-    result = 1
-    for num in range(2, number + 1):
-        result *= num
-    return result
-
-
 def pandigital_numbers_based_on_number_of_digits(number_of_digits: int, include_zero: bool = False):
     if include_zero:
         if number_of_digits > 10:
