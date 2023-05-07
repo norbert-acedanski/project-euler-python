@@ -1,11 +1,10 @@
-import time
-
 from common import prime_number_generator
 
 
 def get_largest_prime_sum_count(limit: int) -> int:
     number_of_primes_below_limit = len(primes_below_a_threshold)
     factor = 1
+    # while loop speeds up the process over 1000 times
     while sum(primes_below_a_threshold[0:number_of_primes_below_limit//factor]) > limit:
         factor += 1
     for num_of_primes in range(number_of_primes_below_limit//factor, 1, -1):
