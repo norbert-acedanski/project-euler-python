@@ -26,13 +26,14 @@ def sum_word_indexes(word: str) -> int:
 
 def prime_number_generator():
     # Not simple, but faster
-    prime_number = 2
+    yield 2
+    prime_number = 3
 
     def _is_number_prime(number: int) -> bool:
-        if number == 2 or number == 3 or number == 5 or number == 7:
+        if number == 3 or number == 5 or number == 7:
             return True
-        # If the last digit is even or ends with 5, then the number is not prime
-        if any(digit == number % 10 for digit in (0, 2, 4, 5, 6, 8)):
+        # If the last digit ends with 5, then the number is not prime
+        if number % 10 == 5:
             return False
         current_factor = 3
         while current_factor <= math.sqrt(number):
@@ -49,7 +50,7 @@ def prime_number_generator():
     while True:
         if _is_number_prime(prime_number):
             yield prime_number
-        prime_number += 1
+        prime_number += 2
 
 
 def is_number_prime(number: int) -> bool:
