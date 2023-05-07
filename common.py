@@ -91,3 +91,7 @@ def get_max_route_value_from_tree(triangle_array: List[List[int]]) -> int:
         new_lengths.append(row[-1] + lengths_of_routes[-1])
         lengths_of_routes = new_lengths
     return max(lengths_of_routes)
+
+
+def is_number_palindrome(number: int) -> bool:
+    return str(number) == str(number)[::-1]

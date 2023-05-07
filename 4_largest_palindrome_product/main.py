@@ -1,5 +1,7 @@
 from typing import Iterable
 
+from common import is_number_palindrome
+
 number_of_digits = 3
 minimum_digit_number = int("1"*bool(number_of_digits - 1) + "0"*(number_of_digits - bool(number_of_digits - 1)))
 maximum_digit_number = int("9"*number_of_digits)
@@ -18,10 +20,6 @@ def get_largest_palindrome_that_is_a_product_of_n_digit_numbers(palindromes: Ite
         for factor in range(maximum_digit_number, int((maximum_digit_number + minimum_digit_number)/2), -1):
             if number % factor == 0 and len(str(number // factor)) == n:
                 return number
-
-
-def is_number_palindrome(number: int) -> bool:
-    return str(number) == str(number)[::-1]
 
 
 if __name__ == "__main__":
