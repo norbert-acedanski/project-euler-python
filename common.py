@@ -2,7 +2,7 @@ import itertools
 import math
 import string
 
-from typing import List
+from typing import List, Tuple
 
 
 def read_file(file_path: str) -> List[str]:
@@ -102,3 +102,12 @@ def calculate_large_exponent(base: int, exponent: int) -> str:
             digits.append(add)
             add = 0
     return "".join(reversed([str(digit) for digit in digits]))
+
+
+def get_reduced_fractions(d: int) -> List[Tuple[int, int]]:
+    reduced_fractions = set()
+    for denominator in range(2, d + 1):
+        for numerator in range(1, denominator):
+            g = math.gcd(numerator, denominator)
+            reduced_fractions.add((numerator//g, denominator//g))
+    return sorted(reduced_fractions, key=lambda fraction: fraction[0]/fraction[1])
