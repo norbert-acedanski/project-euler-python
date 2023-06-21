@@ -1,35 +1,27 @@
+import functools
+import math
+
+
+def pentagonal_number(num: int) -> int:
+    return num*(3*num - 1)//2
+
+
+@functools.cache
 def number_of_partitions(number: int) -> int:
-    if number < 2:
-        raise ValueError("Number should be higher than 1!")
-    num_of_partitions = 1
-    current_partition = [number - 1, 1]
-    print(current_partition)
-    while set(current_partition) != {1}:
-        first_element = current_partition[0]
-        if set(current_partition) == {first_element, 1}:
-            if first_element - 1 >= (second_element := current_partition[1]) + 1:
-                if first_element - 1 >= (sum_without_first := sum(current_partition) - first_element) + 1:
-                    current_partition = [first_element - 1, sum_without_first + 1]
-                else:
-                    # Error for number == 7 -> [4, 1, 1, 1] -> [3, 2, 1, 1]
-                    current_partition = [first_element - 1, second_element + 1, *current_partition[2:]]
-            else:
-                # Error for number == 7 -> [3, 3, 1] -> [3, 2, 1, 1]
-                current_partition[current_partition.index(1) - 1] -= 1
-                current_partition.append(1)
-        else:
-            first_one_index = current_partition.index(1) if 1 in current_partition else -1
-            if first_one_index == -1:
-                current_partition = [*current_partition[:-1], current_partition[-1] - 1, 1]
-            else:
-                if current_partition[first_one_index - 1] != 2:
-                    current_partition = [*current_partition[:-first_one_index], current_partition[-first_one_index] - 1, 2, *current_partition[-first_one_index + 1:]]
-                else:
-                    current_partition = [*current_partition[:-first_one_index], *[1]*(first_one_index + 1)]
-        num_of_partitions += 1
-        print(current_partition)
+    """Based on an equation p(n) = Sum (-1)**(k - 1)*p(n - gk), where k != 0 and gk is a pentagonal number.
+    https://en.wikipedia.org/wiki/Pentagonal_number_theorem"""
+    if number == 0:
+        return 1
+    num_of_partitions = 0
+    k_min = int((1 - math.sqrt(1 + 24*number))/6)
+    k_max = int((1 + math.sqrt(1 + 24*number))/6)
+    for k in range(k_min, k_max + 1):
+        if k == 0:
+            continue
+        coefficient = int((-1)**(k - 1))
+        num_of_partitions += coefficient*number_of_partitions(number - pentagonal_number(k))
     return num_of_partitions
 
 
 if __name__ == "__main__":
-    print(f"Number of partitions: {number_of_partitions(7)}", end="\n\n")
+    print(number_of_partitions(100) - 1)
